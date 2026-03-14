@@ -235,6 +235,73 @@ body{display:flex;flex-direction:column}
 .regime-rule-label{font-size:15px;text-transform:uppercase;letter-spacing:0.7px;color:var(--text-muted);margin-bottom:2px}
 .regime-rule-value{font-family:var(--font-mono);font-size:15px;color:var(--text-primary);font-weight:600}
 
+/* AUTO-FETCH REGIME UI */
+.regime-fetch-section{margin-bottom:16px}
+.regime-fetch-bar{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.regime-fetch-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;background:var(--accent);color:#fff;border:none;cursor:pointer;font-family:var(--font-head);transition:.2s}
+.regime-fetch-btn:hover{background:var(--accent-dim)}
+.regime-fetch-btn:disabled{opacity:.5;cursor:not-allowed}
+.regime-fetch-btn svg{width:16px;height:16px;flex-shrink:0}
+.regime-fetch-spinner{animation:regimeSpin .8s linear infinite}
+@keyframes regimeSpin{to{transform:rotate(360deg)}}
+.regime-fetch-timestamp{font-size:12px;color:var(--text-muted);font-family:var(--font-mono)}
+.regime-loading-bar{height:3px;background:var(--bg-card2);border-radius:2px;overflow:hidden;margin-bottom:8px;display:none}
+.regime-loading-bar.visible{display:block}
+.regime-loading-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s;width:0}
+.regime-loading-step{font-size:12px;color:var(--text-muted);margin-bottom:12px;display:none}
+.regime-loading-step.visible{display:block}
+.regime-error-banner{background:var(--red-dim);border:1px solid rgba(239,68,68,0.3);border-radius:var(--radius-sm);padding:12px;margin-bottom:12px;display:none;font-size:13px;color:var(--red)}
+.regime-error-banner.visible{display:block}
+.regime-hero-inner{border-radius:var(--radius);padding:16px;margin-bottom:12px;position:relative;overflow:hidden}
+.regime-hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.regime-hero-name{font-family:var(--font-head);font-size:20px;font-weight:800;line-height:1.2}
+.regime-score-box{text-align:right}
+.regime-score-lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px}
+.regime-score-val{font-family:var(--font-mono);font-size:22px;font-weight:700}
+.regime-advice{font-size:13px;color:var(--text-secondary);line-height:1.5;margin-bottom:12px}
+.regime-params-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px}
+.regime-param{background:rgba(0,0,0,.2);border-radius:var(--radius-sm);padding:10px}
+.regime-param-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:2px}
+.regime-param-value{font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--text-primary)}
+.regime-setups-row{background:rgba(0,0,0,.2);border-radius:var(--radius-sm);padding:10px}
+.regime-setups-row .regime-param-label{margin-bottom:6px}
+.regime-setup-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:500;margin-right:4px;margin-bottom:4px;border:1px solid var(--border);color:var(--text-muted)}
+.regime-setup-badge.active{border-color:currentColor;background:rgba(59,130,246,.1)}
+.regime-market-panel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:480px){.regime-market-panel{grid-template-columns:1fr}}
+.regime-market-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px}
+.regime-market-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.regime-market-sym{font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--text-primary)}
+.regime-market-score{font-family:var(--font-mono);font-size:12px;color:var(--text-muted)}
+.regime-market-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px}
+.regime-market-row-label{color:var(--text-muted)}
+.regime-market-row-val{font-family:var(--font-mono);font-weight:500;color:var(--text-primary)}
+.regime-market-row-val.pos{color:var(--green)}
+.regime-market-row-val.neg{color:var(--red)}
+.regime-modifiers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:480px){.regime-modifiers{grid-template-columns:1fr}}
+.regime-mod-card{background:var(--bg-card2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;text-align:center}
+.regime-mod-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:6px}
+.regime-mod-value{font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--text-primary)}
+.regime-mod-value.pos{color:var(--green)}
+.regime-mod-value.neg{color:var(--red)}
+.regime-mod-detail{font-size:11px;color:var(--text-muted);margin-top:4px}
+.regime-ftd-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:4px}
+.regime-ftd-label{font-size:13px;color:var(--text-secondary)}
+.regime-ftd-switch{width:40px;height:22px;background:var(--bg-deep);border:1px solid var(--border);border-radius:11px;position:relative;cursor:pointer;transition:.2s}
+.regime-ftd-switch::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--text-muted);transition:.2s}
+.regime-ftd-switch.active{background:rgba(139,92,246,.2);border-color:var(--purple)}
+.regime-ftd-switch.active::after{left:20px;background:var(--purple)}
+.regime-chart-section{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.regime-chart-title{font-family:var(--font-head);font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px}
+.regime-chart-subtitle{font-size:12px;color:var(--text-muted);margin-bottom:12px}
+.regime-chart-container{height:200px;position:relative}
+.regime-chart-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.regime-chart-legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text-muted)}
+.regime-chart-legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.regime-save-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+
+
 /* JOURNAL MOOD */
 .mood-selector{display:flex;gap:8px;flex-wrap:wrap}
 .mood-btn{padding:6px 12px;border-radius:20px;background:var(--bg-card2);border:1px solid var(--border);cursor:pointer;font-size:14px;transition:.2s;white-space:nowrap}
@@ -633,70 +700,103 @@ body{display:flex;flex-direction:column}
 
     <!-- SUB-SCREENS (Market Regime, Exit Checklist, Strategy, Reviews, Settings) -->
     <div id="screen-regime" class="sub-screen">
-      <button class="back-btn" onclick="subNavBack()">‹ Back</button>
-      <div class="section-title">Current Regime</div>
-      <div id="regime-card-container"></div>
-      <div class="section-title">Set Regime</div>
-      <div class="card">
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Regime Date</label><input type="date" id="rg-date" class="form-input"></div>
-          <div class="form-group"><label class="form-label">FTD Active?</label>
-            <select id="rg-ftd" class="form-select">
-              <option value="0">No</option>
-              <option value="1">Yes</option>
-            </select>
-          </div>
-        </div>
+      <button class="back-btn" onclick="subNavBack()">&#8249; Back</button>
 
-        <div class="card" style="background:var(--bg-card2);border:1px solid var(--border);margin-bottom:12px">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-            <div style="font-size:14px;font-weight:600;color:var(--text-primary)">Score Calculator</div>
-            <label style="display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text-secondary);cursor:pointer">
-              <input type="checkbox" id="rg-manual-chk" onchange="togRegMode()" style="accent-color:var(--accent)">
-              Manual score
-            </label>
-          </div>
-          <div id="rg-auto-section">
-            <div class="form-row">
-              <div class="form-group"><label class="form-label">SPY Acc Days</label><input type="number" id="rg-sa" class="form-input" placeholder="0" min="0" onchange="calcRegimeScore()" oninput="calcRegimeScore()"></div>
-              <div class="form-group"><label class="form-label">QQQ Acc Days</label><input type="number" id="rg-qa" class="form-input" placeholder="0" min="0" onchange="calcRegimeScore()" oninput="calcRegimeScore()"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label class="form-label">SPY Dist Days</label><input type="number" id="rg-sd" class="form-input" placeholder="0" min="0" onchange="calcRegimeScore()" oninput="calcRegimeScore()"></div>
-              <div class="form-group"><label class="form-label">QQQ Dist Days</label><input type="number" id="rg-qd" class="form-input" placeholder="0" min="0" onchange="calcRegimeScore()" oninput="calcRegimeScore()"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label class="form-label">SPY vs 50 SMA</label>
-                <select id="rg-s5" class="form-select" onchange="calcRegimeScore()">
-                  <option value="1">Above</option>
-                  <option value="0">Below</option>
-                </select>
-              </div>
-              <div class="form-group"><label class="form-label">QQQ vs 50 SMA</label>
-                <select id="rg-q5" class="form-select" onchange="calcRegimeScore()">
-                  <option value="1">Above</option>
-                  <option value="0">Below</option>
-                </select>
-              </div>
-            </div>
-            <div style="background:var(--bg-deep);border-radius:var(--radius-sm);padding:12px;text-align:center;margin-top:4px">
-              <div style="font-size:14px;color:var(--text-muted);margin-bottom:4px">Calculated Score</div>
-              <div id="rg-calc-score" style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--accent)">—</div>
-            </div>
-          </div>
-          <div id="rg-manual-section" style="display:none">
-            <div class="form-group"><label class="form-label">Blended Score (manual)</label><input type="number" id="rg-score-manual" class="form-input" placeholder="e.g. 1.5" step="0.5" min="-2" max="2"></div>
-          </div>
+      <!-- FETCH BAR -->
+      <div class="regime-fetch-section">
+        <div class="regime-fetch-bar">
+          <button class="regime-fetch-btn" id="regime-fetch-btn" onclick="regimeFetchAll()">
+            <svg id="regime-fetch-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1.5 8a6.5 6.5 0 0 1 11.25-4.5M14.5 8a6.5 6.5 0 0 1-11.25 4.5"/>
+              <path d="M12.75 1v3h-3M3.25 15v-3h3"/>
+            </svg>
+            <span id="regime-fetch-btn-text">Fetch Market Data</span>
+          </button>
+          <span class="regime-fetch-timestamp" id="regime-fetch-ts">&mdash;</span>
         </div>
-
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">Dist Days (Max SPY/QQQ)</label><input type="number" id="rg-di" class="form-input" placeholder="0" min="0"></div>
-          <div class="form-group"><label class="form-label">SPY-QQQ Gap (%)</label><input type="number" id="rg-ga" class="form-input" placeholder="0.0" step="0.1" min="0"></div>
-        </div>
-        <div class="form-group"><label class="form-label">Notes</label><input type="text" id="rg-notes" class="form-input" placeholder="e.g. Market showing late-stage distribution"></div>
-        <button class="btn btn-primary" onclick="saveRegime()">Save Regime</button>
+        <div class="regime-loading-bar" id="regime-loading-bar"><div class="regime-loading-fill" id="regime-loading-fill"></div></div>
+        <div class="regime-loading-step" id="regime-loading-step">Initializing...</div>
+        <div class="regime-error-banner" id="regime-error-banner"></div>
       </div>
-      <div class="section-title">Regime History</div>
+
+      <!-- REGIME HERO CARD -->
+      <div id="regime-hero-container"></div>
+
+      <!-- MARKET DATA PANELS -->
+      <div class="regime-market-panel" id="regime-market-panel" style="display:none">
+        <div class="regime-market-card">
+          <div class="regime-market-header">
+            <span class="regime-market-sym">SPY</span>
+            <span class="regime-market-score" id="rg-spy-score">Score: &mdash;</span>
+          </div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Close</span><span class="regime-market-row-val" id="rg-spy-close">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">50 SMA</span><span class="regime-market-row-val" id="rg-spy-sma">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">vs SMA</span><span class="regime-market-row-val" id="rg-spy-vs">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Accum Days (25d)</span><span class="regime-market-row-val pos" id="rg-spy-acc">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Dist Days (25d)</span><span class="regime-market-row-val neg" id="rg-spy-dist">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Net A/D</span><span class="regime-market-row-val" id="rg-spy-net">&mdash;</span></div>
+        </div>
+        <div class="regime-market-card">
+          <div class="regime-market-header">
+            <span class="regime-market-sym">QQQ</span>
+            <span class="regime-market-score" id="rg-qqq-score">Score: &mdash;</span>
+          </div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Close</span><span class="regime-market-row-val" id="rg-qqq-close">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">50 SMA</span><span class="regime-market-row-val" id="rg-qqq-sma">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">vs SMA</span><span class="regime-market-row-val" id="rg-qqq-vs">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Accum Days (25d)</span><span class="regime-market-row-val pos" id="rg-qqq-acc">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Dist Days (25d)</span><span class="regime-market-row-val neg" id="rg-qqq-dist">&mdash;</span></div>
+          <div class="regime-market-row"><span class="regime-market-row-label">Net A/D</span><span class="regime-market-row-val" id="rg-qqq-net">&mdash;</span></div>
+        </div>
+      </div>
+
+      <!-- MODIFIERS -->
+      <div class="regime-modifiers" id="regime-modifiers" style="display:none">
+        <div class="regime-mod-card">
+          <div class="regime-mod-title">SPY-QQQ Gap</div>
+          <div class="regime-mod-value" id="rg-gap-val">&mdash;</div>
+          <div class="regime-mod-detail">Index divergence</div>
+        </div>
+        <div class="regime-mod-card">
+          <div class="regime-mod-title">Gap Penalty</div>
+          <div class="regime-mod-value" id="rg-gap-pen">&mdash;</div>
+          <div class="regime-mod-detail">Applied when gap &ge; 1.5%</div>
+        </div>
+        <div class="regime-mod-card">
+          <div class="regime-mod-title">Follow-Through Day</div>
+          <div class="regime-ftd-toggle">
+            <span class="regime-ftd-label" id="rg-ftd-label">Inactive</span>
+            <div class="regime-ftd-switch" id="rg-ftd-switch" onclick="regimeToggleFTD()"></div>
+          </div>
+          <div class="regime-mod-detail" style="margin-top:6px">Manual toggle</div>
+        </div>
+      </div>
+
+      <!-- SAVE ROW -->
+      <div class="regime-save-row" id="regime-save-row" style="display:none">
+        <button class="btn btn-primary" onclick="regimeSaveToFirebase()">Save Regime to TradePath</button>
+        <span id="regime-save-status" style="font-size:13px;color:var(--text-muted)"></span>
+      </div>
+
+      <!-- 30-DAY CHART -->
+      <div class="regime-chart-section" id="regime-chart-section" style="display:none">
+        <div class="regime-chart-title">30-Day Regime History</div>
+        <div class="regime-chart-subtitle">Daily blended score with regime zones</div>
+        <div class="regime-chart-container">
+          <canvas id="regimeHistChart"></canvas>
+        </div>
+        <div class="regime-chart-legend">
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#10b981"></span>Strong Uptrend</div>
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#06b6d4"></span>Strong but Late</div>
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#3b82f6"></span>Uptrend</div>
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#eab308"></span>Under Pressure</div>
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#f97316"></span>Choppy</div>
+          <div class="regime-chart-legend-item"><span class="regime-chart-legend-dot" style="background:#ef4444"></span>Correction</div>
+        </div>
+      </div>
+
+      <!-- FIREBASE REGIME HISTORY -->
+      <div class="section-title">Saved Regime History</div>
       <div id="regime-history-list"></div>
     </div>
 
@@ -3233,166 +3333,617 @@ function renderCalendar() {
 function calPrevMonth() { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalendar(); }
 function calNextMonth() { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar(); }
 
+
 // ============================================================
-// MARKET REGIME
+// MARKET REGIME (Auto-Fetch Engine)
 // ============================================================
-function renderRegimePage() {
-  // Init date field to today if empty
-  const rgDate = document.getElementById('rg-date');
-  if (rgDate && !rgDate.value) rgDate.value = today();
-  const r = currentRegime();
-  const card = document.getElementById('regime-card-container');
-  if (r) {
-    const rc = RC[r.reg];
-    let cardCls = 'regime-card ';
-    if (r.reg.includes('Strong')) cardCls += 'regime-strong';
-    else if (r.reg.includes('Uptrend') && !r.reg.includes('Pressure')) cardCls += 'regime-uptrend';
-    else if (r.reg.includes('Choppy') || r.reg.includes('Pressure')) cardCls += 'regime-choppy';
-    else cardCls += 'regime-bad';
-    card.innerHTML = `<div class="${cardCls}">
-      <div class="regime-name" style="${r.reg.includes('Strong')?'color:var(--green)':r.reg.includes('Uptrend')&&!r.reg.includes('Pressure')?'color:var(--accent)':r.reg.includes('Choppy')||r.reg.includes('Pressure')?'color:var(--yellow)':'color:var(--red)'}">${r.reg}</div>
-      <div style="font-size:15px;color:var(--text-muted);margin-bottom:8px">Set: ${r.date} ${r.note?'— '+r.note:''}</div>
-      ${rc ? `<div class="regime-rules">
-        <div class="regime-rule"><div class="regime-rule-label">Max Positions</div><div class="regime-rule-value">${rc.mp}</div></div>
-        <div class="regime-rule"><div class="regime-rule-label">Heat Cap</div><div class="regime-rule-value">${rc.hc}%</div></div>
-        <div class="regime-rule"><div class="regime-rule-label">Pyramid</div><div class="regime-rule-value">${rc.py}</div></div>
-        <div class="regime-rule"><div class="regime-rule-label">Size Mult</div><div class="regime-rule-value">${rc.sm}x</div></div>
-        <div class="regime-rule" style="grid-column:1/-1"><div class="regime-rule-label">Allowed Setups</div><div class="regime-rule-value" style="font-size:15px">${rc.st.join(', ')}</div></div>
-      </div>` : ''}
-    </div>`;
-  } else {
-    card.innerHTML = '<div class="card"><p style="color:var(--text-muted);font-size:15px">No regime set. Use the form below to set the current market regime.</p></div>';
+const RG_AV_KEY = 'XZVM0AQNFEN1BKYA';
+const RG_AV_BASE = 'https://www.alphavantage.co/query';
+const RG_CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+
+const REGIME_COLORS = {
+  'Strong Uptrend':         '#10b981',
+  'Strong but Late':        '#06b6d4',
+  'Uptrend':                '#3b82f6',
+  'Uptrend Under Pressure': '#eab308',
+  'Choppy / Pressured':     '#f97316',
+  'Correction':             '#ef4444',
+  'FTD Triggered':          '#8b5cf6'
+};
+
+const REGIME_ADVICE = {
+  'Strong Uptrend':          'Press your edge \u2014 full position sizing, all setups active.',
+  'Strong but Late':         'Still trending but aging. Take setups, tighten stops. No T3.',
+  'Uptrend':                 'Healthy conditions. Standard sizing with T1+T2 pyramids.',
+  'Uptrend Under Pressure':  'Distribution rising. Reduce exposure, PP/HVE only.',
+  'Choppy / Pressured':      'PP into 21 EMA/50 DMA only. Cash is a position.',
+  'Correction':              'Preserve capital. Only pilot positions on confirmed FTD.',
+  'FTD Triggered':           'FTD confirmed. Begin pilot positions with PP/HVE only.'
+};
+
+const REGIME_TIER_ORDER = ['Strong Uptrend','Strong but Late','Uptrend','Uptrend Under Pressure','Choppy / Pressured','Correction'];
+const ALL_SETUP_TYPES = ['BGU','PP','HVE','NoSetup'];
+
+let rgCachedData = null;
+let rgIsFetching = false;
+let rgFtdActive = false;
+let rgLastResult = null;
+let rgHistChart = null;
+let rgChartHistory = [];
+
+// --- API FETCH ---
+async function rgAvFetch(params) {
+  const url = `${RG_AV_BASE}?${params}&apikey=${RG_AV_KEY}`;
+  try {
+    const resp = await fetch(url);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (data['Note'] || data['Information']) throw new Error(data['Note'] || data['Information']);
+      if (data['Error Message']) throw new Error(data['Error Message']);
+      return data;
+    }
+  } catch(e) {
+    if (e.message && (e.message.includes('call frequency') || e.message.includes('25 requests'))) throw e;
   }
-  // History
-  const hist = Object.values(regimes).sort((a,b) => (a.date||'') > (b.date||'') ? -1 : 1).slice(0,15);
-  const histContainer = document.getElementById('regime-history-list');
-  histContainer.innerHTML = hist.length === 0 ? '<p style="font-size:14px;color:var(--text-muted)">No history yet</p>' :
-    hist.map(rg => `<div class="history-item" style="flex-wrap:wrap">
-      <div style="flex:1;min-width:0">
-        <div class="history-regime">${rg.reg}</div>
-        ${rg.score!=null?`<div class="history-note">Score: ${rg.score}${rg.dist!=null?' | Dist: '+rg.dist:''}${rg.gap!=null?' | Gap: '+rg.gap+'%':''}</div>`:''}
-        ${rg.note?`<div class="history-note">${rg.note}</div>`:''}
-      </div>
-      <div style="display:flex;align-items:center;gap:8px">
-        <span class="history-date">${rg.date}</span>
-        <span class="btn btn-secondary btn-xs" style="font-size:12px;padding:2px 8px;min-height:24px" onclick="editRegimeEntry('${rg.date}')">Edit</span>
-        <span class="btn btn-danger btn-xs" style="font-size:12px;padding:2px 8px;min-height:24px" onclick="deleteRegimeEntry('${rg.date}')">\u2715</span>
-      </div>
-    </div>`).join('');
+  try {
+    const proxyUrl = RG_CORS_PROXY + encodeURIComponent(url);
+    const resp = await fetch(proxyUrl);
+    if (resp.ok) {
+      const data = await resp.json();
+      if (data['Note'] || data['Information']) throw new Error(data['Note'] || data['Information']);
+      if (data['Error Message']) throw new Error(data['Error Message']);
+      return data;
+    }
+    throw new Error('API request failed');
+  } catch(e) { throw e; }
 }
-function calcRegimeScore() {
-  const sa = +(document.getElementById('rg-sa').value||0);
-  const sd = +(document.getElementById('rg-sd').value||0);
-  const qa = +(document.getElementById('rg-qa').value||0);
-  const qd = +(document.getElementById('rg-qd').value||0);
-  const s5 = +(document.getElementById('rg-s5').value||1);
-  const q5 = +(document.getElementById('rg-q5').value||1);
-  const spyNet = sa - sd;
-  const qqNet = qa - qd;
-  const spyScore = (spyNet>=3?1.5:spyNet>=1?1:spyNet>=0?0.5:spyNet>=-2?-0.5:-1.5) + (s5?0.5:-0.5);
-  const qqScore  = (qqNet>=3?1.5:qqNet>=1?1:qqNet>=0?0.5:qqNet>=-2?-0.5:-1.5)  + (q5?0.5:-0.5);
-  const bl = Math.round(((spyScore + qqScore) / 2) * 2) / 2;
-  const display = document.getElementById('rg-calc-score');
-  if (display) {
-    display.textContent = bl;
-    display.style.color = bl >= 1 ? 'var(--green)' : bl <= -1 ? 'var(--red)' : 'var(--yellow)';
+
+function rgSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function rgShowLoading(show) {
+  const bar = document.getElementById('regime-loading-bar');
+  const step = document.getElementById('regime-loading-step');
+  if (bar) bar.classList.toggle('visible', show);
+  if (step) step.classList.toggle('visible', show);
+}
+
+function rgSetStep(text, pct) {
+  const step = document.getElementById('regime-loading-step');
+  const fill = document.getElementById('regime-loading-fill');
+  if (step) step.textContent = text;
+  if (fill) fill.style.width = pct + '%';
+}
+
+function rgShowError(msg) {
+  const el = document.getElementById('regime-error-banner');
+  if (el) { el.textContent = msg; el.classList.add('visible'); }
+}
+
+function rgHideError() {
+  const el = document.getElementById('regime-error-banner');
+  if (el) el.classList.remove('visible');
+}
+
+async function regimeFetchAll() {
+  if (rgIsFetching) return;
+  rgIsFetching = true;
+  rgHideError();
+  rgShowLoading(true);
+
+  const btn = document.getElementById('regime-fetch-btn');
+  const btnText = document.getElementById('regime-fetch-btn-text');
+  const icon = document.getElementById('regime-fetch-icon');
+  if (btn) btn.disabled = true;
+  if (btnText) btnText.textContent = 'Fetching...';
+  if (icon) icon.classList.add('regime-fetch-spinner');
+
+  try {
+    rgSetStep('Fetching SPY daily data...', 10);
+    const spyDaily = await rgAvFetch('function=TIME_SERIES_DAILY&symbol=SPY&outputsize=compact');
+    await rgSleep(2500);
+
+    rgSetStep('Fetching QQQ daily data...', 35);
+    const qqqDaily = await rgAvFetch('function=TIME_SERIES_DAILY&symbol=QQQ&outputsize=compact');
+    await rgSleep(2500);
+
+    rgSetStep('Fetching SPY 50-day SMA...', 60);
+    const spySma = await rgAvFetch('function=SMA&symbol=SPY&interval=daily&time_period=50&series_type=close');
+    await rgSleep(2500);
+
+    rgSetStep('Fetching QQQ 50-day SMA...', 85);
+    const qqqSma = await rgAvFetch('function=SMA&symbol=QQQ&interval=daily&time_period=50&series_type=close');
+    rgSetStep('Calculating regime...', 100);
+    await rgSleep(500);
+
+    rgCachedData = {
+      spyDaily: spyDaily['Time Series (Daily)'],
+      qqqDaily: qqqDaily['Time Series (Daily)'],
+      spySma: spySma['Technical Analysis: SMA'],
+      qqqSma: qqqSma['Technical Analysis: SMA'],
+      timestamp: new Date().toLocaleString('en-US', {
+        timeZone: 'America/New_York',
+        month: 'short', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      }) + ' ET'
+    };
+
+    const tsEl = document.getElementById('regime-fetch-ts');
+    if (tsEl) tsEl.textContent = 'Updated: ' + rgCachedData.timestamp;
+
+    rgCalculateAndDisplay();
+    rgBuild30DayChart();
+  } catch(e) {
+    console.error('Regime fetch error:', e);
+    if (e.message && (e.message.includes('call frequency') || e.message.includes('25 requests'))) {
+      rgShowError('Rate limit reached. Alpha Vantage allows 25 requests/day and 5/min. Wait and retry.');
+    } else {
+      rgShowError('API Error: ' + (e.message || 'Unknown error'));
+    }
+  } finally {
+    rgIsFetching = false;
+    rgShowLoading(false);
+    if (btn) btn.disabled = false;
+    if (btnText) btnText.textContent = 'Fetch Market Data';
+    if (icon) icon.classList.remove('regime-fetch-spinner');
   }
-  return bl;
 }
-function togRegMode() {
-  const manual = document.getElementById('rg-manual-chk').checked;
-  document.getElementById('rg-auto-section').style.display = manual ? 'none' : 'block';
-  document.getElementById('rg-manual-section').style.display = manual ? 'block' : 'none';
+
+// --- CALCULATION ENGINE ---
+function rgGetRecentDays(dailyData, count) {
+  if (!dailyData) return [];
+  const dates = Object.keys(dailyData).sort().reverse();
+  return dates.slice(0, count).map(d => ({
+    date: d,
+    open: parseFloat(dailyData[d]['1. open']),
+    high: parseFloat(dailyData[d]['2. high']),
+    low: parseFloat(dailyData[d]['3. low']),
+    close: parseFloat(dailyData[d]['4. close']),
+    volume: parseInt(dailyData[d]['5. volume'])
+  }));
 }
-function cRegB(sc, di, ft) {
-  if (sc <= -2) return ft ? 'FTD Triggered' : 'Correction';
-  if (sc > -2 && sc <= 0) return 'Choppy / Pressured';
-  if (sc > 0 && sc < 2 && di >= 6) return 'Uptrend Under Pressure';
-  if (sc > 0 && sc < 2) return 'Uptrend';
-  if (sc >= 2 && di >= 6) return 'Strong but Late';
-  if (sc >= 2) return 'Strong Uptrend';
+
+function rgGetLatestSMA(smaData) {
+  if (!smaData) return null;
+  const dates = Object.keys(smaData).sort().reverse();
+  return dates.length ? parseFloat(smaData[dates[0]]['SMA']) : null;
+}
+
+function rgCountAccDistDays(days) {
+  let accDays = 0, distDays = 0;
+  for (let i = 0; i < 25 && i < days.length - 1; i++) {
+    const t = days[i], y = days[i + 1];
+    const pct = t.close / y.close - 1;
+    if (pct >= 0.002 && t.volume > y.volume) accDays++;
+    else if (pct <= -0.002 && t.volume > y.volume) distDays++;
+  }
+  return { accDays, distDays };
+}
+
+function rgCalcIndexScore(acc, dist, close, sma50) {
+  const net = acc - dist;
+  let base;
+  if (net >= 3) base = 1.5;
+  else if (net >= 1) base = 1.0;
+  else if (net >= 0) base = 0.5;
+  else if (net >= -2) base = -0.5;
+  else base = -1.5;
+  return base + (close > sma50 ? 0.5 : -0.5);
+}
+
+function rgCalcBlended(s1, s2) {
+  return Math.round(((s1 + s2) / 2) * 2) / 2;
+}
+
+function rgCalcRegimeBase(score, dist, ftd) {
+  if (score <= -2) return ftd ? 'FTD Triggered' : 'Correction';
+  if (score > -2 && score <= 0) return 'Choppy / Pressured';
+  if (score > 0 && score < 2 && dist >= 6) return 'Uptrend Under Pressure';
+  if (score > 0 && score < 2) return 'Uptrend';
+  if (score >= 2 && dist >= 6) return 'Strong but Late';
+  if (score >= 2) return 'Strong Uptrend';
   return 'Uptrend';
 }
-function dropT(reg) {
-  if (reg === 'Strong Uptrend') return 'Uptrend';
-  if (reg === 'Strong but Late') return 'Uptrend Under Pressure';
-  if (reg === 'Uptrend') return 'Choppy / Pressured';
-  if (reg === 'Uptrend Under Pressure') return 'Choppy / Pressured';
-  return reg;
+
+function rgDropTier(regime) {
+  const idx = REGIME_TIER_ORDER.indexOf(regime);
+  return (idx >= 0 && idx < REGIME_TIER_ORDER.length - 1) ? REGIME_TIER_ORDER[idx + 1] : regime;
 }
-function cReg(sc, di, ga, ft) {
-  if (ga >= 1.5) { const b = cRegB(sc, di, ft); return dropT(b); }
-  return cRegB(sc, di, ft);
+
+function rgCalculateAndDisplay() {
+  if (!rgCachedData || !rgCachedData.spyDaily || !rgCachedData.qqqDaily) return;
+
+  const spyDays = rgGetRecentDays(rgCachedData.spyDaily, 26);
+  const qqqDays = rgGetRecentDays(rgCachedData.qqqDaily, 26);
+  if (spyDays.length < 2 || qqqDays.length < 2) return;
+
+  const spyClose = spyDays[0].close;
+  const qqqClose = qqqDays[0].close;
+  const spySma50 = rgGetLatestSMA(rgCachedData.spySma);
+  const qqqSma50 = rgGetLatestSMA(rgCachedData.qqqSma);
+  if (!spySma50 || !qqqSma50) return;
+
+  const spyAD = rgCountAccDistDays(spyDays);
+  const qqqAD = rgCountAccDistDays(qqqDays);
+  const spyScore = rgCalcIndexScore(spyAD.accDays, spyAD.distDays, spyClose, spySma50);
+  const qqqScore = rgCalcIndexScore(qqqAD.accDays, qqqAD.distDays, qqqClose, qqqSma50);
+  const blended = rgCalcBlended(spyScore, qqqScore);
+
+  const spyPct = ((spyClose / spySma50) - 1) * 100;
+  const qqqPct = ((qqqClose / qqqSma50) - 1) * 100;
+  const gap = Math.abs(spyPct - qqqPct);
+  const maxDist = Math.max(spyAD.distDays, qqqAD.distDays);
+
+  let regime = rgCalcRegimeBase(blended, maxDist, rgFtdActive);
+  const gapPenalty = gap >= 1.5 && regime !== 'FTD Triggered';
+  if (gapPenalty) regime = rgDropTier(regime);
+
+  const rc = RC[regime];
+  const color = REGIME_COLORS[regime] || 'var(--accent)';
+
+  rgLastResult = {
+    reg: regime, score: blended, dist: maxDist, gap: parseFloat(gap.toFixed(1)),
+    ftd: rgFtdActive ? 1 : 0, date: spyDays[0].date,
+    spyAcc: spyAD.accDays, spyDist: spyAD.distDays,
+    qqAcc: qqqAD.accDays, qqDist: qqqAD.distDays,
+    spy50: spyClose > spySma50 ? 1 : 0,
+    qq50: qqqClose > qqqSma50 ? 1 : 0
+  };
+
+  // Build hero card
+  let heroClass = 'regime-hero-inner ';
+  if (regime.includes('Strong')) heroClass += 'regime-strong';
+  else if (regime.includes('Uptrend') && !regime.includes('Pressure')) heroClass += 'regime-uptrend';
+  else if (regime.includes('Choppy') || regime.includes('Pressure')) heroClass += 'regime-choppy';
+  else heroClass += 'regime-bad';
+
+  const heroContainer = document.getElementById('regime-hero-container');
+  if (heroContainer) {
+    heroContainer.innerHTML = '<div class="' + heroClass + '">' +
+      '<div class="regime-hero-top">' +
+        '<div>' +
+          '<div class="regime-hero-name" style="color:' + color + '">' + regime + '</div>' +
+          '<div style="font-size:12px;color:var(--text-muted);margin-top:2px">Data: ' + spyDays[0].date + '</div>' +
+        '</div>' +
+        '<div class="regime-score-box">' +
+          '<div class="regime-score-lbl">Blended Score</div>' +
+          '<div class="regime-score-val" style="color:' + color + '">' + (blended >= 0 ? '+' : '') + blended.toFixed(1) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="regime-advice">' + (REGIME_ADVICE[regime] || '') + '</div>' +
+      (rc ? '<div class="regime-params-grid">' +
+        '<div class="regime-param"><div class="regime-param-label">Max Positions</div><div class="regime-param-value">' + rc.mp + '</div></div>' +
+        '<div class="regime-param"><div class="regime-param-label">Heat Cap</div><div class="regime-param-value">' + rc.hc + '%</div></div>' +
+        '<div class="regime-param"><div class="regime-param-label">Pyramid</div><div class="regime-param-value">' + rc.py + '</div></div>' +
+        '<div class="regime-param"><div class="regime-param-label">Size Mult</div><div class="regime-param-value">' + rc.sm + 'x</div></div>' +
+      '</div>' +
+      '<div class="regime-setups-row"><div class="regime-param-label">Allowed Setups</div>' +
+        ALL_SETUP_TYPES.map(function(s) {
+          var isActive = rc.st.includes(s);
+          return '<span class="regime-setup-badge' + (isActive ? ' active' : '') + '" style="' + (isActive ? 'color:'+color+';border-color:'+color : '') + '">' + s + '</span>';
+        }).join('') +
+      '</div>' : '') +
+    '</div>';
+  }
+
+  // Show panels
+  document.getElementById('regime-market-panel').style.display = '';
+  document.getElementById('regime-modifiers').style.display = '';
+  document.getElementById('regime-save-row').style.display = '';
+
+  // SPY data
+  var spyAbove = spyClose > spySma50;
+  document.getElementById('rg-spy-close').textContent = '$' + spyClose.toFixed(2);
+  document.getElementById('rg-spy-sma').textContent = '$' + spySma50.toFixed(2);
+  var spyVsEl = document.getElementById('rg-spy-vs');
+  spyVsEl.textContent = (spyAbove ? '\u25B2 +' : '\u25BC ') + Math.abs(spyPct).toFixed(1) + '%';
+  spyVsEl.className = 'regime-market-row-val ' + (spyAbove ? 'pos' : 'neg');
+  document.getElementById('rg-spy-acc').textContent = spyAD.accDays;
+  document.getElementById('rg-spy-dist').textContent = spyAD.distDays;
+  var spyNet = spyAD.accDays - spyAD.distDays;
+  var spyNetEl = document.getElementById('rg-spy-net');
+  spyNetEl.textContent = (spyNet >= 0 ? '+' : '') + spyNet;
+  spyNetEl.className = 'regime-market-row-val ' + (spyNet > 0 ? 'pos' : spyNet < 0 ? 'neg' : '');
+  document.getElementById('rg-spy-score').textContent = 'Score: ' + (spyScore >= 0 ? '+' : '') + spyScore.toFixed(1);
+
+  // QQQ data
+  var qqqAbove = qqqClose > qqqSma50;
+  document.getElementById('rg-qqq-close').textContent = '$' + qqqClose.toFixed(2);
+  document.getElementById('rg-qqq-sma').textContent = '$' + qqqSma50.toFixed(2);
+  var qqqVsEl = document.getElementById('rg-qqq-vs');
+  qqqVsEl.textContent = (qqqAbove ? '\u25B2 +' : '\u25BC ') + Math.abs(qqqPct).toFixed(1) + '%';
+  qqqVsEl.className = 'regime-market-row-val ' + (qqqAbove ? 'pos' : 'neg');
+  document.getElementById('rg-qqq-acc').textContent = qqqAD.accDays;
+  document.getElementById('rg-qqq-dist').textContent = qqqAD.distDays;
+  var qqqNet = qqqAD.accDays - qqqAD.distDays;
+  var qqqNetEl = document.getElementById('rg-qqq-net');
+  qqqNetEl.textContent = (qqqNet >= 0 ? '+' : '') + qqqNet;
+  qqqNetEl.className = 'regime-market-row-val ' + (qqqNet > 0 ? 'pos' : qqqNet < 0 ? 'neg' : '');
+  document.getElementById('rg-qqq-score').textContent = 'Score: ' + (qqqScore >= 0 ? '+' : '') + qqqScore.toFixed(1);
+
+  // Modifiers
+  var gapEl = document.getElementById('rg-gap-val');
+  gapEl.textContent = gap.toFixed(1) + '%';
+  gapEl.className = 'regime-mod-value ' + (gap >= 1.5 ? 'neg' : 'pos');
+
+  var penEl = document.getElementById('rg-gap-pen');
+  penEl.textContent = gapPenalty ? 'Yes' : 'No';
+  penEl.className = 'regime-mod-value ' + (gapPenalty ? 'neg' : 'pos');
 }
-async function saveRegime() {
-  const isManual = document.getElementById('rg-manual-chk').checked;
-  const sc = isManual
-    ? (parseFloat(document.getElementById('rg-score-manual').value) || 0)
-    : calcRegimeScore();
-  const di = parseInt(document.getElementById('rg-di').value) || 0;
-  const ga = parseFloat(document.getElementById('rg-ga').value) || 0;
-  const ft = parseInt(document.getElementById('rg-ftd').value) || 0;
-  const note = document.getElementById('rg-notes').value.trim();
-  const dateVal = document.getElementById('rg-date').value || today();
-  const spyAcc  = parseInt(document.getElementById('rg-sa').value) || 0;
-  const qqAcc   = parseInt(document.getElementById('rg-qa').value) || 0;
-  const spyDist = parseInt(document.getElementById('rg-sd').value) || 0;
-  const qqDist  = parseInt(document.getElementById('rg-qd').value) || 0;
-  const spy50   = parseInt(document.getElementById('rg-s5').value) || 1;
-  const qq50    = parseInt(document.getElementById('rg-q5').value) || 1;
-  const reg = cReg(sc, di, ga, ft);
-  const entry = { reg, date: dateVal, score: sc, dist: di, gap: ga, ftd: ft, note,
-    spyAcc, spyDist, qqAcc, qqDist, spy50, qq50 };
+
+// --- FTD TOGGLE ---
+function regimeToggleFTD() {
+  rgFtdActive = !rgFtdActive;
+  rgUpdateFTDUI();
+  if (rgCachedData) rgCalculateAndDisplay();
+}
+
+function rgUpdateFTDUI() {
+  var sw = document.getElementById('rg-ftd-switch');
+  var lbl = document.getElementById('rg-ftd-label');
+  if (sw) sw.classList.toggle('active', rgFtdActive);
+  if (lbl) {
+    lbl.textContent = rgFtdActive ? 'Active' : 'Inactive';
+    lbl.style.color = rgFtdActive ? 'var(--purple)' : '';
+  }
+}
+
+// --- SAVE TO FIREBASE ---
+async function regimeSaveToFirebase() {
+  if (!rgLastResult) { showToast('No data to save. Fetch market data first.', 'error'); return; }
+  var r = rgLastResult;
+  var entry = {
+    reg: r.reg, date: r.date, score: r.score, dist: r.dist, gap: r.gap,
+    ftd: r.ftd, note: 'Auto-fetched',
+    spyAcc: r.spyAcc, spyDist: r.spyDist, qqAcc: r.qqAcc, qqDist: r.qqDist,
+    spy50: r.spy50, qq50: r.qq50
+  };
   try {
-    await fbSet('reg/' + dateVal, entry);
-    regimes[dateVal] = entry;
-    showToast('Regime set to: ' + reg, 'success');
-    renderRegimePage();
+    await fbSet('reg/' + r.date, entry);
+    regimes[r.date] = entry;
+    showToast('Regime saved: ' + r.reg, 'success');
+    invalidateCache();
     updateRegimePill();
     renderDashboard();
-  } catch(e) { showToast('Error: ' + e.message, 'error'); }
+    renderRegimePage();
+  } catch(e) { showToast('Error saving: ' + e.message, 'error'); }
 }
-function editRegimeEntry(dateKey) {
-  const rg = regimes[dateKey];
-  if (!rg) return;
-  // Populate the regime form with the existing entry's data
-  document.getElementById('rg-date').value = rg.date || dateKey;
-  document.getElementById('rg-di').value = rg.dist != null ? rg.dist : (rg.di || 0);
-  document.getElementById('rg-ga').value = rg.gap != null ? rg.gap : (rg.ga || 0);
-  document.getElementById('rg-ftd').value = rg.ftd || 0;
-  document.getElementById('rg-notes').value = rg.note || '';
-  // If we have detailed score inputs, populate them
-  if (rg.spyAcc != null) {
-    document.getElementById('rg-manual-chk').checked = false;
-    togRegMode();
-    document.getElementById('rg-sa').value = rg.spyAcc || 0;
-    document.getElementById('rg-qa').value = rg.qqAcc || 0;
-    document.getElementById('rg-sd').value = rg.spyDist || 0;
-    document.getElementById('rg-qd').value = rg.qqDist || 0;
-    document.getElementById('rg-s5').value = rg.spy50 != null ? rg.spy50 : 1;
-    document.getElementById('rg-q5').value = rg.qq50 != null ? rg.qq50 : 1;
-    calcRegimeScore();
-  } else {
-    document.getElementById('rg-manual-chk').checked = true;
-    togRegMode();
-    document.getElementById('rg-score-manual').value = rg.score || 0;
+
+// --- 30-DAY CHART ---
+function rgBuild30DayChart() {
+  if (!rgCachedData || !rgCachedData.spyDaily || !rgCachedData.qqqDaily) return;
+
+  var spyDailyData = rgCachedData.spyDaily;
+  var qqqDailyData = rgCachedData.qqqDaily;
+  var spySmaData = rgCachedData.spySma;
+  var qqqSmaData = rgCachedData.qqqSma;
+
+  var allSpyDates = Object.keys(spyDailyData).sort().reverse();
+  var allQqqDates = Object.keys(qqqDailyData).sort().reverse();
+
+  rgChartHistory = [];
+  var pointCount = Math.min(30, allSpyDates.length - 26);
+
+  for (var p = 0; p < pointCount; p++) {
+    var spySlice = allSpyDates.slice(p, p + 26).map(function(d) {
+      return { date: d, close: parseFloat(spyDailyData[d]['4. close']), volume: parseInt(spyDailyData[d]['5. volume']) };
+    });
+    var qqqSlice = allQqqDates.slice(p, p + 26).map(function(d) {
+      return { date: d, close: parseFloat(qqqDailyData[d]['4. close']), volume: parseInt(qqqDailyData[d]['5. volume']) };
+    });
+
+    if (spySlice.length < 2 || qqqSlice.length < 2) continue;
+
+    var spyAD = rgCountAccDistDays(spySlice);
+    var qqqAD = rgCountAccDistDays(qqqSlice);
+
+    var dateKey = spySlice[0].date;
+    var spySma50 = spySmaData && spySmaData[dateKey] ? parseFloat(spySmaData[dateKey]['SMA']) : rgGetLatestSMA(spySmaData);
+    var qqqSma50 = qqqSmaData && qqqSmaData[dateKey] ? parseFloat(qqqSmaData[dateKey]['SMA']) : rgGetLatestSMA(qqqSmaData);
+    if (!spySma50 || !qqqSma50) continue;
+
+    var spyClose = spySlice[0].close;
+    var qqqClose = qqqSlice[0].close;
+    var spyScore = rgCalcIndexScore(spyAD.accDays, spyAD.distDays, spyClose, spySma50);
+    var qqqScore = rgCalcIndexScore(qqqAD.accDays, qqqAD.distDays, qqqClose, qqqSma50);
+    var bl = rgCalcBlended(spyScore, qqqScore);
+    var spyPct = ((spyClose / spySma50) - 1) * 100;
+    var qqqPct = ((qqqClose / qqqSma50) - 1) * 100;
+    var gp = Math.abs(spyPct - qqqPct);
+    var maxDist = Math.max(spyAD.distDays, qqqAD.distDays);
+    var reg = rgCalcRegimeBase(bl, maxDist, false);
+    if (gp >= 1.5 && reg !== 'FTD Triggered') reg = rgDropTier(reg);
+
+    rgChartHistory.push({
+      date: dateKey, regime: reg, blendedScore: bl,
+      spyClose: spyClose, qqqClose: qqqClose,
+      color: REGIME_COLORS[reg] || '#3b82f6'
+    });
   }
-  // Scroll to the form
-  document.getElementById('content').scrollTop = 0;
-  showToast('Editing regime entry from ' + dateKey, 'info');
+
+  rgChartHistory.reverse();
+
+  document.getElementById('regime-chart-section').style.display = '';
+
+  var ctx = document.getElementById('regimeHistChart');
+  if (!ctx) return;
+
+  var labels = rgChartHistory.map(function(d) {
+    var dt = new Date(d.date + 'T12:00:00');
+    return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  });
+  var scores = rgChartHistory.map(function(d) { return d.blendedScore; });
+  var colors = rgChartHistory.map(function(d) { return d.color; });
+
+  if (rgHistChart) rgHistChart.destroy();
+
+  rgHistChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Blended Score',
+        data: scores,
+        borderWidth: 2.5,
+        pointRadius: 3,
+        pointHoverRadius: 6,
+        pointBackgroundColor: colors,
+        pointBorderColor: colors,
+        pointBorderWidth: 0,
+        segment: {
+          borderColor: function(c) { return colors[c.p0DataIndex]; }
+        },
+        tension: 0.3,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { intersect: false, mode: 'index' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#111827',
+          borderColor: 'rgba(255,255,255,0.07)',
+          borderWidth: 1,
+          titleColor: '#f1f5f9',
+          bodyColor: '#94a3b8',
+          titleFont: { family: 'DM Sans', weight: '600', size: 12 },
+          bodyFont: { family: 'JetBrains Mono', size: 11 },
+          padding: { top: 8, bottom: 8, left: 12, right: 12 },
+          cornerRadius: 8,
+          displayColors: false,
+          callbacks: {
+            title: function(items) { return rgChartHistory[items[0].dataIndex].date; },
+            label: function(item) {
+              var d = rgChartHistory[item.dataIndex];
+              return [d.regime, 'Score: ' + (d.blendedScore >= 0 ? '+' : '') + d.blendedScore.toFixed(1)];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+          ticks: { color: '#475569', font: { family: 'JetBrains Mono', size: 10 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 10 },
+          border: { display: false }
+        },
+        y: {
+          min: -3, max: 3,
+          grid: {
+            color: function(c) {
+              if (c.tick.value === 0) return 'rgba(148,163,184,0.2)';
+              if (c.tick.value === -2) return 'rgba(239,68,68,0.15)';
+              if (c.tick.value === 2) return 'rgba(16,185,129,0.15)';
+              return 'rgba(255,255,255,0.04)';
+            },
+            lineWidth: function(c) { return c.tick.value === 0 ? 1.5 : 1; },
+            drawBorder: false
+          },
+          ticks: {
+            color: '#475569',
+            font: { family: 'JetBrains Mono', size: 10 },
+            stepSize: 1,
+            callback: function(v) {
+              var map = {'-3':'','-2':'Corr.','-1':'Choppy','0':'Neutral','1':'Up','2':'Strong','3':''};
+              return map[String(v)] || '';
+            }
+          },
+          border: { display: false }
+        }
+      }
+    }
+  });
 }
+
+// --- RENDER REGIME PAGE ---
+function renderRegimePage() {
+  rgUpdateFTDUI();
+
+  if (!rgLastResult) {
+    var r = currentRegime();
+    var heroContainer = document.getElementById('regime-hero-container');
+    if (r && heroContainer) {
+      var rc = RC[r.reg];
+      var color = REGIME_COLORS[r.reg] || 'var(--accent)';
+      var heroClass = 'regime-hero-inner ';
+      if (r.reg.includes('Strong')) heroClass += 'regime-strong';
+      else if (r.reg.includes('Uptrend') && !r.reg.includes('Pressure')) heroClass += 'regime-uptrend';
+      else if (r.reg.includes('Choppy') || r.reg.includes('Pressure')) heroClass += 'regime-choppy';
+      else heroClass += 'regime-bad';
+
+      heroContainer.innerHTML = '<div class="' + heroClass + '">' +
+        '<div class="regime-hero-top">' +
+          '<div>' +
+            '<div class="regime-hero-name" style="color:' + color + '">' + r.reg + '</div>' +
+            '<div style="font-size:12px;color:var(--text-muted);margin-top:2px">Saved: ' + r.date + (r.note ? ' \u2014 '+r.note : '') + '</div>' +
+          '</div>' +
+          '<div class="regime-score-box">' +
+            '<div class="regime-score-lbl">Score</div>' +
+            '<div class="regime-score-val" style="color:' + color + '">' + (r.score != null ? (r.score >= 0 ? '+' : '') + Number(r.score).toFixed(1) : '\u2014') + '</div>' +
+          '</div>' +
+        '</div>' +
+        (rc ? '<div class="regime-params-grid">' +
+          '<div class="regime-param"><div class="regime-param-label">Max Positions</div><div class="regime-param-value">' + rc.mp + '</div></div>' +
+          '<div class="regime-param"><div class="regime-param-label">Heat Cap</div><div class="regime-param-value">' + rc.hc + '%</div></div>' +
+          '<div class="regime-param"><div class="regime-param-label">Pyramid</div><div class="regime-param-value">' + rc.py + '</div></div>' +
+          '<div class="regime-param"><div class="regime-param-label">Size Mult</div><div class="regime-param-value">' + rc.sm + 'x</div></div>' +
+        '</div>' +
+        '<div class="regime-setups-row"><div class="regime-param-label">Allowed Setups</div>' +
+          ALL_SETUP_TYPES.map(function(s) {
+            var isActive = rc.st.includes(s);
+            return '<span class="regime-setup-badge' + (isActive ? ' active' : '') + '" style="' + (isActive ? 'color:'+color+';border-color:'+color : '') + '">' + s + '</span>';
+          }).join('') +
+        '</div>' : '') +
+      '</div>';
+    } else if (heroContainer) {
+      heroContainer.innerHTML = '<div class="card"><p style="color:var(--text-muted);font-size:14px">No regime data yet. Click "Fetch Market Data" to auto-calculate.</p></div>';
+    }
+  }
+
+  // Firebase History
+  var hist = Object.values(regimes).sort(function(a,b) { return (a.date||'') > (b.date||'') ? -1 : 1; }).slice(0,15);
+  var histContainer = document.getElementById('regime-history-list');
+  if (histContainer) {
+    histContainer.innerHTML = hist.length === 0 ? '<p style="font-size:13px;color:var(--text-muted)">No saved history</p>' :
+      hist.map(function(rg) {
+        var c = REGIME_COLORS[rg.reg] || 'var(--text-secondary)';
+        return '<div class="history-item" style="flex-wrap:wrap">' +
+          '<div style="flex:1;min-width:0">' +
+            '<div class="history-regime" style="color:' + c + '">' + rg.reg + '</div>' +
+            (rg.score!=null ? '<div class="history-note">Score: ' + rg.score + (rg.dist!=null ? ' | Dist: '+rg.dist : '') + (rg.gap!=null ? ' | Gap: '+rg.gap+'%' : '') + '</div>' : '') +
+            (rg.note ? '<div class="history-note">' + rg.note + '</div>' : '') +
+          '</div>' +
+          '<div style="display:flex;align-items:center;gap:8px">' +
+            '<span class="history-date">' + rg.date + '</span>' +
+            '<span class="btn btn-danger btn-xs" style="font-size:12px;padding:2px 8px;min-height:24px" onclick="deleteRegimeEntry(\'' + rg.date + '\')">\u2715</span>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+  }
+}
+
+function calcRegimeScore() { return 0; }
+function togRegMode() {}
+
+function editRegimeEntry(dateKey) {
+  showToast('Use "Fetch Market Data" to get the latest regime.', 'info');
+}
+
 function deleteRegimeEntry(dateKey) {
-  showConfirm('Delete Regime Entry', `Delete the regime entry for ${dateKey}? This cannot be undone.`, async () => {
+  showConfirm('Delete Regime Entry', 'Delete the regime entry for ' + dateKey + '? This cannot be undone.', async function() {
     try {
       await fbRemove('reg/' + dateKey);
       delete regimes[dateKey];
       showToast('Regime entry deleted', 'success');
+      invalidateCache();
       renderRegimePage();
       updateRegimePill();
       renderDashboard();
     } catch(e) { showToast('Error: ' + e.message, 'error'); }
   });
 }
+
 
 // ============================================================
 // EXIT CHECKLIST PAGE
